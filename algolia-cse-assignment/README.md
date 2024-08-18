@@ -15,9 +15,11 @@ Spencer and Williams have provided us with raw product data and a repo of their 
 Spencer and Williams are having a sale on Cameras. They would like you create and run a demo script that reduces the price of everything in the camera category by 20% and then round to the lowest full number. They have provided the raw data as products.json . The data should be transformed and sent to algolia in a single script.  
   
 ### Technical Assignment - Part Two (2 hrs)
-Our customer Spencer and Williams want to use Personalisation in order to to do this they need to implement **_Algolia Insights_** . They have asked for us to create a demo of the events included in their provided codebase.  
+Our customer Spencer and Williams want to use Personalisation. In order to to do this they need to implement **_Algolia Insights_**. They have asked for us to create a demo of the events included in their provided codebase.  
   
-It is imperative that we send clicks and conversion on the result page hit results, any other events included will be a bonus.  
+It is imperative that we send clicks and conversion on the result page hit results. 
+
+TODO: set up Personalization. Any other events included will be a bonus.  
   
 ### Technical Assignment - Part Three (0.5 hrs)
 Spencer and Williams want some guidance on their optimal relevance set up. In the Algolia index that you have uploaded the data and events to, configure the relevance so that when users are searching they are seeing the results that make most sense. 

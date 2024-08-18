@@ -6,11 +6,12 @@ import {
   pagination,
   refinementList,
 } from 'instantsearch.js/es/widgets';
-import resultHit from '../templates/result-hit';
+
+import { resultHit } from '../templates/result-hit'; // Adjust the path as needed
 
 /**
  * @class ResultsPage
- * @description Instant Search class to display content on main page
+ * @description Instant Search class to display content on main page.
  */
 class ResultPage {
   constructor() {
@@ -18,11 +19,11 @@ class ResultPage {
     this._registerWidgets();
     this._startSearch();
   }
-
+  // eslint-disable-next-line jsdoc/require-description
   /**
    * @private
    * Handles creating the search client and creating an instance of instant search
-   * @return {void}
+   * @returns {void}
    */
   _registerClient() {
     this._searchClient = algoliasearch(
@@ -33,13 +34,15 @@ class ResultPage {
     this._searchInstance = instantsearch({
       indexName: process.env.ALGOLIA_INDEX,
       searchClient: this._searchClient,
+      insights: true,
     });
   }
 
+  // eslint-disable-next-line jsdoc/require-description
   /**
    * @private
    * Adds widgets to the Algolia instant search instance
-   * @return {void}
+   * @returns {void}
    */
   _registerWidgets() {
     this._searchInstance.addWidgets([
@@ -49,7 +52,7 @@ class ResultPage {
       hits({
         container: '#hits',
         templates: {
-          item: resultHit,
+          item: resultHit, // Use the imported template
         },
       }),
       pagination({
@@ -66,10 +69,11 @@ class ResultPage {
     ]);
   }
 
+  // eslint-disable-next-line jsdoc/require-description
   /**
    * @private
    * Starts instant search after widgets are registered
-   * @return {void}
+   * @returns {void}
    */
   _startSearch() {
     this._searchInstance.start();
