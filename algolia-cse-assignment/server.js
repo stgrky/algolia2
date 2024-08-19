@@ -1,8 +1,6 @@
-import { readFileSync } from 'fs';
-
-import algoliasearch from 'algoliasearch';
-import express from 'express';
-
+const express = require('express');
+const algoliasearch = require('algoliasearch');
+const fs = require('fs');
 require('dotenv').config();
 
 // Initialize Express
@@ -25,7 +23,7 @@ app.get('/update-camera-price', async (req, res) => {
     // Reduce prices of cameras
     const updatedRecords = records.map((record) => {
       // CLIENT NOTE: We excluded camera accessories and anything camcorder related, because instructions simply stated to include cameras in discount
-      // to include camcorders and accessories, remove the below if statement and uncomment the following if statement from lines 30-34:
+      // to include camcorders and accessories, remove the below if statement and uncomment the following if statement from lines 27-31:
       // if (record.categories.includes('Cameras & Camcorders')) {
       //    record.price = Math.floor(record.price * 0.8);
       //  }
