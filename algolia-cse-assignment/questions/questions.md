@@ -16,12 +16,11 @@ Hi Marissa,
 
 Thank you for reaching out and sharing your feedback about the new dashboard design, and sorry to hear you find the changes inconvenient.
 
-I will make sure to give your feedback to our product team in the form of a feature request ticket. A possible solution to improve your iterative process might be to utilize our [delete indices API](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/delete-indices/).
+I will make sure to give your feedback to our product team in the form of a feature request ticket. In the meantime, I encourage to you check out our documentation on our [delete indices API](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/delete-indices/#delete-indices-with-the-api). This might provide a possible solution to improve your iterative process.
 
-Again, thank you for the feedback, and do not hesitate to reach out again.
+Again, thank you for the feedback, and do not hesitate to reach out again with any additional questions, concerns or feedback.
 
-Best,
-Grant
+Best, Grant
 
 _Question 2_:
 
@@ -70,3 +69,5 @@ Thank you for reaching out. This appears to be related to your searchkit package
 3. If you're using a bundler like Webpack or Parcel, make sure the searchkit library is in the bundle.
 
 Please follow these steps and reach back out to let me know it's been resolved, or let me know if you need additional help!
+
+Best, Grant

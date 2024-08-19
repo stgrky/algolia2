@@ -1,6 +1,8 @@
-const express = require('express');
-const algoliasearch = require('algoliasearch');
-const fs = require('fs');
+import { readFileSync } from 'fs';
+
+import algoliasearch from 'algoliasearch';
+import express from 'express';
+
 require('dotenv').config();
 
 // Initialize Express
@@ -17,18 +19,23 @@ const index = client.initIndex(algoliaIndex);
 // Route to fetch, process, and send data to Algolia
 app.get('/update-camera-price', async (req, res) => {
   try {
-    const rawData = fs.readFileSync('./data/products.json');
+    const rawData = readFileSync('./data/products.json');
     const records = JSON.parse(rawData);
 
-    //     // Process data - reduce prices of cameras
+    // Reduce prices of cameras
     const updatedRecords = records.map((record) => {
-      //       // CLIENT NOTE: How is 'camera' defined? We excluded accessories and camcorders
+      // CLIENT NOTE: We excluded camera accessories and anything camcorder related, because instructions simply stated to include cameras in discount
+      // to include camcorders and accessories, remove the below if statement and uncomment the following if statement from lines 30-34:
+      // if (record.categories.includes('Cameras & Camcorders')) {
+      //    record.price = Math.floor(record.price * 0.8);
+      //  }
+      //  return record;
+      // });
       if (
         record.categories.includes('Cameras & Camcorders') &&
         !record.categories.some((category) =>
           category.includes('Accessories')
         ) &&
-        // comment out or delete above && and below line from ! to ) in order to include camcorders in the discount
         !record.hierarchicalCategories.lvl1.includes(
           'Cameras & Camcorders > Camcorders'
         )
@@ -38,7 +45,7 @@ app.get('/update-camera-price', async (req, res) => {
       return record;
     });
 
-    //     // Save processed data to Algolia
+    // Save updatedRecords to Algolia
     await index.saveObjects(updatedRecords).then(({ objectIDs }) => {
       // console.log('Saved object IDs:', objectIDs);
     });
