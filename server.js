@@ -22,13 +22,15 @@ app.get('/update-camera-price', async (req, res) => {
 
     // Reduce prices of cameras
     const updatedRecords = records.map((record) => {
-      // CLIENT NOTE: We excluded camera accessories and anything camcorder related, because instructions simply stated to include cameras in discount
-      // to include camcorders and accessories, remove the below if statement and uncomment the following if statement from lines 27-31:
+      // CLIENT NOTE: We excluded camera accessories and anything camcorder related from receiving the 20% discount.
+      // To include camcorders and accessories, remove the below if statement and uncomment the following if statement from lines 28-32:
+
       // if (record.categories.includes('Cameras & Camcorders')) {
       //    record.price = Math.floor(record.price * 0.8);
       //  }
       //  return record;
       // });
+
       if (
         record.categories.includes('Cameras & Camcorders') &&
         !record.categories.some((category) =>

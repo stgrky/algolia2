@@ -6,7 +6,7 @@
       "command": "npm install"
     },
     {
-      "name": "n",
+      "name": "Env Build",
       "command": "npm run build"
     }
   ],
