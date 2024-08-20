@@ -27,12 +27,12 @@ class ResultPage {
    */
   _registerClient() {
     this._searchClient = algoliasearch(
-      process.env.ALGOLIA_APP_ID,
-      process.env.ALGOLIA_API_KEY
+      'E2MEGW0SYT',
+      'ad10077148ca11dd0d323556980bff49'
     );
 
     this._searchInstance = instantsearch({
-      indexName: process.env.ALGOLIA_INDEX,
+      indexName: 'products',
       searchClient: this._searchClient,
       insights: true,
     });
