@@ -6,9 +6,9 @@ require('dotenv').config();
 // Initialize Express
 const app = express();
 const PORT = process.env.PORT || 3000;
-const apiKey = "ad10077148ca11dd0d323556980bff49";
-const apiId = "E2MEGW0SYT";
-const algoliaIndex = "products";
+const apiKey = process.env.ALGOLIA_API_KEY;
+const apiId = process.env.ALGOLIA_APP_ID;
+const algoliaIndex = process.env.ALGOLIA_INDEX;
 
 // Algolia credentials
 const client = algoliasearch(apiId, apiKey);
